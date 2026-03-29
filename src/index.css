@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+  /* Marvel/Futuristic Theme Variables */
+  --jarvis-blue: #00f0ff;
+  --jarvis-blue-glow: rgba(0, 240, 255, 0.4);
+  --bg-dark: #0a0e17;
+  --bg-darker: #05070a;
+  --text-primary: #e0f2fe;
+  --text-secondary: #7dd3fc;
+  --grid-color: rgba(0, 240, 255, 0.05);
+  --iron-gold: #ffb703;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Micro-Glitch CSS Effect */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--jarvis-blue);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+.glitch-text:hover::before, .glitch-text:hover::after {
+  animation-duration: 0.2s;
+}
+@keyframes glitch-anim {
+  0% { clip: rect(21px, 9999px, 86px, 0); }
+  20% { clip: rect(20px, 9999px, 15px, 0); }
+  40% { clip: rect(69px, 9999px, 73px, 0); }
+  60% { clip: rect(100px, 9999px, 34px, 0); }
+  80% { clip: rect(31px, 9999px, 35px, 0); }
+  100% { clip: rect(54px, 9999px, 31px, 0); }
+}
+@keyframes glitch-anim2 {
+  0% { clip: rect(16px, 9999px, 48px, 0); }
+  20% { clip: rect(98px, 9999px, 5px, 0); }
+  40% { clip: rect(78px, 9999px, 81px, 0); }
+  60% { clip: rect(74px, 9999px, 90px, 0); }
+  80% { clip: rect(48px, 9999px, 5px, 0); }
+  100% { clip: rect(42px, 9999px, 88px, 0); }
+}
+
+/* Sci-fi Background Grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+  opacity: 0.8;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+}
+
+h1, h2, h3, h4, .mono {
+  font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--jarvis-blue);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px var(--jarvis-blue-glow), 0 0 20px var(--jarvis-blue);
+}
+
+.glass-panel {
+  background: rgba(10, 14, 23, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+  border-radius: 12px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--jarvis-blue-glow); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
+}
