@@ -4,8 +4,9 @@ import { Bot, X, Send } from 'lucide-react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import './ChatBot.css';
 
-// Initialize Gemini
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
+// Initialize Gemini - key loaded from .env or fallback for local dev
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || 'AIzaSyD6D1eUOsef45GntKyeiRO8IyAgnUGA62Y';
+const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export default function ChatBot() {

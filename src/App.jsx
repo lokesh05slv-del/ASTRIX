@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navigation from './components/Navigation';
-import ChatBot from './components/ChatBot';
 import CustomCursor from './components/CustomCursor';
 import ParticleBackground from './components/ParticleBackground';
 import Home from './pages/Home';
@@ -32,7 +31,6 @@ function App() {
       <ParticleBackground />
       <Navigation />
       <AnimatedRoutes />
-      <ChatBot />
     </Router>
   );
 }
