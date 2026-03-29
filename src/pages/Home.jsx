@@ -48,10 +48,10 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        style={{ zIndex: 1, textAlign: 'center', pointerEvents: 'none' }}
+        style={{ zIndex: 1, textAlign: 'center', pointerEvents: 'none', marginTop: '15vh' }}
       >
-        <h1 className="glow-text mono glitch-text" data-text="ASTRIX" style={{ fontSize: '4rem', marginBottom: '1rem', marginTop: '100px' }}>ASTRIX</h1>
-        <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem' }}>
+        <h1 className="glow-text mono glitch-text" data-text="ASTRIX" style={{ fontSize: 'clamp(3rem, 10vw, 4rem)', marginBottom: '1rem' }}>ASTRIX</h1>
+        <p style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem', padding: '0 1rem' }}>
           Automating your business. Engineering your digital presence. Powered by AI.
         </p>
         <button 

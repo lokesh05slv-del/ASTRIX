@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { Home, Grid, Route, Mail } from 'lucide-react';
 import './Navigation.css';
 
 export default function Navigation() {
@@ -11,10 +12,22 @@ export default function Navigation() {
         </div>
       </Link>
       <div className="nav-links">
-        <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Home</NavLink>
-        <NavLink to="/services" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Services</NavLink>
-        <NavLink to="/process" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Process</NavLink>
-        <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Contact</NavLink>
+        <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+          <Home className="nav-icon" size={20} />
+          <span>Home</span>
+        </NavLink>
+        <NavLink to="/services" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+          <Grid className="nav-icon" size={20} />
+          <span>Services</span>
+        </NavLink>
+        <NavLink to="/process" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+          <Route className="nav-icon" size={20} />
+          <span>Process</span>
+        </NavLink>
+        <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+          <Mail className="nav-icon" size={20} />
+          <span>Contact</span>
+        </NavLink>
       </div>
     </nav>
   );

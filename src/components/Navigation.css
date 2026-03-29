@@ -42,6 +42,12 @@
   transition: all 0.3s ease;
   padding: 0.5rem 1rem;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-icon {
+  display: none; /* Hidden on desktop */
 }
 .nav-link:hover {
   color: var(--jarvis-blue);
@@ -53,7 +59,63 @@
   border: 1px solid var(--jarvis-blue);
   box-shadow: 0 0 10px var(--jarvis-blue-glow);
 }
+
+/* --- Mobile Bottom Nav Bar Styles --- */
 @media (max-width: 768px) {
-  .nav-container { top: 0; width: 100%; border-radius: 0; flex-direction: column; padding: 1rem; }
-  .nav-links { margin-top: 1rem; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  /* Keep logo floating at the top */
+  .nav-container { 
+    top: 0; 
+    width: 100%; 
+    border-radius: 0; 
+    flex-direction: column; 
+    padding: 1rem; 
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .logo-img { height: 60px; filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.8)) contrast(1.2); }
+
+  /* Snap links to a fixed bottom glassmorphic bar */
+  .nav-links {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: rgba(10, 14, 23, 0.85); /* Dark solid glass */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 20px;
+    margin-top: 0;
+    padding: 0.8rem 1rem;
+    gap: 0;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.2);
+    z-index: 1000;
+  }
+
+  /* Shrink text, stack icons to feel like an iOS tabbar */
+  .nav-link {
+    flex-direction: column;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    gap: 4px;
+    border: none !important; /* Turn off borders on mobile */
+    box-shadow: none !important;
+    background: transparent !important;
+    opacity: 0.6;
+  }
+  
+  .nav-icon {
+    display: block; /* Show on mobile */
+  }
+
+  /* Highlight logic for active tab */
+  .nav-link.active {
+    opacity: 1;
+    color: var(--jarvis-blue);
+  }
 }
