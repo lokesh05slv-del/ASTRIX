@@ -24,15 +24,25 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   position: relative;
-  /* Global spacing to clear fixed nav ribbons */
-  padding-top: 140px; 
+}
+
+/* Universal Content Spacing (Proper Visibility Fix) */
+.page-container {
+  padding-top: 140px; /* Space for Desktop Nav */
 }
 
 @media (max-width: 768px) {
-  body {
-    padding-top: 80px; /* Space for top-logo */
-    padding-bottom: 120px; /* Space for bottom ergonomic nav */
+  .page-container {
+    padding-top: 100px; /* Space for Mobile Top Logo */
+    padding-bottom: 120px; /* Space for Mobile Bottom Nav */
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
+}
+
+/* Fluid Typography for Headers */
+h1.glow-text {
+  font-size: clamp(2.5rem, 8vw, 4rem);
 }
 
 /* Micro-Glitch CSS Effect */

@@ -25,7 +25,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="contact-page">
+    <div className="contact-page page-container">
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="contact-container glass-panel">
         <div className="contact-header">
           <Terminal className="glow-icon" color="var(--jarvis-blue)" size={40} />

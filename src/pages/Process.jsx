@@ -67,7 +67,7 @@ export default function Process() {
   });
 
   return (
-    <div className="process-page" ref={containerRef}>
+    <div className="process-page page-container" ref={containerRef}>
       <section className="process-hero">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}

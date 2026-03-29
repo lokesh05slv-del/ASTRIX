@@ -37,7 +37,7 @@ function HoverCard({ title, description, Icon }) {
 
 export default function Services() {
   return (
-    <div className="services-page">
+    <div className="services-page page-container">
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

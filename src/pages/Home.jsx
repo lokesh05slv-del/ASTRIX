@@ -34,7 +34,7 @@ function HologramCore() {
 export default function Home() {
   const navigate = useNavigate();
   return (
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+    <div className="home-page page-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <Canvas camera={{ position: [0, 0, 8] }}>
           <ambientLight intensity={0.5} />
@@ -48,10 +48,10 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        style={{ zIndex: 1, textAlign: 'center', pointerEvents: 'none', marginTop: '15vh' }}
+        style={{ zIndex: 1, textAlign: 'center', pointerEvents: 'none' }}
       >
-        <h1 className="glow-text mono glitch-text" data-text="ASTRIX" style={{ fontSize: 'clamp(3rem, 10vw, 4rem)', marginBottom: '1rem' }}>ASTRIX</h1>
-        <p style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem', padding: '0 1rem' }}>
+        <h1 className="glow-text mono glitch-text" data-text="ASTRIX" style={{ fontSize: 'clamp(2.5rem, 12vw, 5rem)', marginBottom: '1rem' }}>ASTRIX</h1>
+        <p style={{ fontSize: 'clamp(0.9rem, 4vw, 1.2rem)', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem', padding: '0 1.5rem' }}>
           Automating your business. Engineering your digital presence. Powered by AI.
         </p>
         <button 
@@ -61,8 +61,8 @@ export default function Home() {
             background: 'transparent',
             border: '1px solid var(--jarvis-blue)',
             color: 'var(--jarvis-blue)',
-            padding: '1rem 2rem',
-            fontSize: '1.2rem',
+            padding: '0.8rem 1.5rem',
+            fontSize: '1.1rem',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
