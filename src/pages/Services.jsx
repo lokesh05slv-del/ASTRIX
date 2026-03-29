@@ -60,7 +60,7 @@ export default function Services() {
         />
         <HoverCard 
           title="AI Solutions" 
-          description="Integrating large language models directly into your business logic. Smart chatbots, data extraction, and AI-driven growth hooks."
+          description="Integrating large language models directly into your business logic. AI-driven data extraction and workflow hooks."
           Icon={Bot}
         />
       </div>

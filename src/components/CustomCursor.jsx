@@ -34,7 +34,7 @@ export default function CustomCursor() {
     const onMouseEnter = () => setHidden(false);
 
     const handleLinkHoverEvents = () => {
-      document.querySelectorAll('a, button, input, textarea, .chatbot-toggle').forEach(el => {
+      document.querySelectorAll('a, button, input, textarea').forEach(el => {
         el.addEventListener('mouseover', () => setLinkHovered(true));
         el.addEventListener('mouseout', () => setLinkHovered(false));
       });
