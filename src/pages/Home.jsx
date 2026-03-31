@@ -30,23 +30,8 @@ export default function Home() {
           <p className="hero-subtitle">
             ASTRIX pioneers intelligent automation and digital architecture to streamline operations, enhance security, and drive measurable growth for modern enterprises.
           </p>
-          
-          <div className="hero-actions">
-            <button 
-              className="btn-primary"
-              onClick={() => navigate('/services')}
-            >
-              Explore Services <ArrowRight size={18} />
-            </button>
-            <button 
-              className="btn-secondary"
-              onClick={() => navigate('/contact')}
-            >
-              Contact Sales
-            </button>
-          </div>
         </motion.div>
-
+          
         <motion.div 
           className="hero-features-section"
           initial={{ opacity: 0, x: 30 }}
@@ -77,7 +62,28 @@ export default function Home() {
             <p>Robust architectures designed to protect your critical data.</p>
           </div>
         </motion.div>
+
       </div>
+
+      <motion.div 
+        className="hero-actions"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <button 
+          className="btn-primary"
+          onClick={() => navigate('/services')}
+        >
+          Explore Services <ArrowRight size={18} />
+        </button>
+        <button 
+          className="btn-secondary"
+          onClick={() => navigate('/contact')}
+        >
+          Contact Sales
+        </button>
+      </motion.div>
     </div>
   );
 }

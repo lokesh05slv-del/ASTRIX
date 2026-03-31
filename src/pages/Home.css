@@ -92,8 +92,13 @@
 
 .hero-actions {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
   align-items: center;
+  margin-top: auto; /* Pushes to bottom if there's space */
+  padding: 2rem 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .btn-secondary {
@@ -169,6 +174,10 @@
 }
 
 @media (max-width: 768px) {
+  .hero-content {
+    gap: 1.5rem;
+  }
+  
   .hero-title {
     font-size: clamp(2rem, 8vw, 2.5rem);
   }

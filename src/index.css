@@ -43,14 +43,15 @@ body {
 
 @media (max-width: 768px) {
   html {
-    font-size: 13px; /* Demagnifies rem-based UI elements and text by approx 20% */
+    font-size: 12px; /* Demagnifies rem-based UI elements and text more */
   }
 
   .page-container {
-    padding-top: 100px; /* Space for Mobile Top Logo */
-    padding-bottom: 100px; /* Space for Mobile Bottom Nav */
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-top: 80px; /* Space for Mobile Top Logo */
+    padding-bottom: 80px; /* Space for Mobile Bottom Nav */
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    min-height: 100dvh; /* Use dynamic viewport height for mobile browser UI */
   }
 }
 
