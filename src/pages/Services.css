@@ -83,4 +83,7 @@
   .services-header {
     margin-bottom: 3rem;
   }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }

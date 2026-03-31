@@ -98,19 +98,8 @@
   .desktop-only { display: none; }
   .mobile-only { display: flex; }
   
-  .nav-header {
-    border-bottom: none;
-    box-shadow: none;
-    background: transparent;
-    backdrop-filter: none;
-  }
-
   .nav-container {
     padding: 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
   }
 
   .nav-logo {
