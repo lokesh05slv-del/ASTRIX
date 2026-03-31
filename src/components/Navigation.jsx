@@ -5,31 +5,33 @@ import './Navigation.css';
 
 export default function Navigation() {
   return (
-    <header className="nav-header fade-in">
-      <div className="nav-container">
-        <Link to="/" className="nav-logo-link">
-          <div className="nav-logo text-brand">
-             ASTRIX
-          </div>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="main-navigation desktop-only">
-          <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            <span>HOME</span>
-          </NavLink>
-          <NavLink to="/services" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            <span>SERVICES</span>
-          </NavLink>
-          <NavLink to="/process" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            <span>PROCESS</span>
-          </NavLink>
-          <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            <span>CONTACT</span>
-          </NavLink>
-        </nav>
-      </div>
-
+    <>
+      <header className="nav-header fade-in">
+        <div className="nav-container">
+          <Link to="/" className="nav-logo-link">
+            <div className="nav-logo text-brand">
+               ASTRIX
+            </div>
+          </Link>
+  
+          {/* Desktop Navigation */}
+          <nav className="main-navigation desktop-only">
+            <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+              <span>HOME</span>
+            </NavLink>
+            <NavLink to="/services" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+              <span>SERVICES</span>
+            </NavLink>
+            <NavLink to="/process" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+              <span>PROCESS</span>
+            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+              <span>CONTACT</span>
+            </NavLink>
+          </nav>
+        </div>
+      </header>
+  
       {/* Mobile Bottom Navigation */}
       <nav className="mobile-navigation mobile-only">
         <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
@@ -49,6 +51,6 @@ export default function Navigation() {
           <span>Contact</span>
         </NavLink>
       </nav>
-    </header>
+    </>
   );
 }
