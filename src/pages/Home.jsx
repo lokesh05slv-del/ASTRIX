@@ -1,91 +1,83 @@
-import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, BarChart2, Shield, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-
-function HologramCore() {
-  const mesh = useRef();
-  useFrame((state) => {
-    mesh.current.rotation.x = state.clock.getElapsedTime() * 0.2;
-    mesh.current.rotation.y = state.clock.getElapsedTime() * 0.3;
-  });
-  return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <mesh ref={mesh}>
-        <icosahedronGeometry args={[2, 1]} />
-        <meshStandardMaterial color="#00f0ff" wireframe />
-      </mesh>
-      <Sphere args={[1.4, 32, 32]}>
-        <MeshDistortMaterial
-          color="#00f0ff"
-          attach="material"
-          distort={0.4}
-          speed={2}
-          transparent
-          opacity={0.3}
-        />
-      </Sphere>
-    </Float>
-  );
-}
+import './Home.css';
 
 export default function Home() {
   const navigate = useNavigate();
+
   return (
-    <div className="home-page page-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <Canvas camera={{ position: [0, 0, 8] }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} color="#00f0ff" />
-          <HologramCore />
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
-        </Canvas>
+    <div className="home-page page-container">
+      {/* Soft Background Gradient Effect */}
+      <div className="hero-background">
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
       </div>
-      
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        style={{ zIndex: 1, textAlign: 'center', pointerEvents: 'none' }}
-      >
-        <h1 className="glow-text mono glitch-text" data-text="ASTRIX" style={{ fontSize: 'clamp(2.5rem, 12vw, 5rem)', marginBottom: '1rem' }}>ASTRIX</h1>
-        <p style={{ fontSize: 'clamp(0.9rem, 4vw, 1.2rem)', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem', padding: '0 1.5rem' }}>
-          Automating your business. Engineering your digital presence. Powered by AI.
-        </p>
-        <button 
-          onClick={() => navigate('/services')}
-          style={{ 
-            pointerEvents: 'auto',
-            background: 'transparent',
-            border: '1px solid var(--jarvis-blue)',
-            color: 'var(--jarvis-blue)',
-            padding: '0.8rem 1.5rem',
-            fontSize: '1.1rem',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            margin: '0 auto',
-            borderRadius: '4px',
-            boxShadow: '0 0 15px var(--jarvis-blue-glow)',
-            textTransform: 'uppercase',
-            fontFamily: "'Share Tech Mono', monospace",
-            transition: 'all 0.3s'
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.background = 'rgba(0, 240, 255, 0.1)';
-            e.currentTarget.style.boxShadow = '0 0 25px var(--jarvis-blue-glow)';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.background = 'transparent';
-            e.currentTarget.style.boxShadow = '0 0 15px var(--jarvis-blue-glow)';
-          }}
+
+      <div className="hero-content fade-in">
+        <motion.div 
+          className="hero-text-section"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Initialize Systems <ArrowRight size={20} />
-        </button>
-      </motion.div>
+          <div className="badge">ENTERPRISE SOLUTIONS</div>
+          <h1 className="hero-title">
+            Transforming Business <br />
+            <span className="text-brand">Through Automation</span>
+          </h1>
+          <p className="hero-subtitle">
+            ASTRIX pioneers intelligent automation and digital architecture to streamline operations, enhance security, and drive measurable growth for modern enterprises.
+          </p>
+          
+          <div className="hero-actions">
+            <button 
+              className="btn-primary"
+              onClick={() => navigate('/services')}
+            >
+              Explore Services <ArrowRight size={18} />
+            </button>
+            <button 
+              className="btn-secondary"
+              onClick={() => navigate('/contact')}
+            >
+              Contact Sales
+            </button>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          className="hero-features-section"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        >
+          <div className="feature-card card-clean fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="icon-wrapper">
+              <BarChart2 size={24} color="var(--brand-blue)" />
+            </div>
+            <h3>Data-Driven Growth</h3>
+            <p>Leverage analytics to scale your operations predictably.</p>
+          </div>
+          
+          <div className="feature-card card-clean fade-in" style={{ animationDelay: '0.5s' }}>
+            <div className="icon-wrapper">
+              <Zap size={24} color="var(--brand-blue)" />
+            </div>
+            <h3>Rapid Automation</h3>
+            <p>Deploy AI-driven workflows that eliminate manual bottlenecks.</p>
+          </div>
+
+          <div className="feature-card card-clean fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="icon-wrapper">
+              <Shield size={24} color="var(--brand-blue)" />
+            </div>
+            <h3>Enterprise Security</h3>
+            <p>Robust architectures designed to protect your critical data.</p>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }

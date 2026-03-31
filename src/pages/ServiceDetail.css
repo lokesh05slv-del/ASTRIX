@@ -1,153 +1,134 @@
 .service-detail-page {
-  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 4rem;
+}
+
+.detail-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--brand-blue-light) 100%);
+  z-index: -1;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.detail-container {
+  max-width: 900px;
   margin: 0 auto;
-  padding-bottom: 200px;
+  padding: 0 1.5rem;
 }
 
 .back-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: none;
-  border: none;
+  background: transparent;
   color: var(--text-secondary);
+  border: none;
+  font-weight: 500;
   cursor: pointer;
-  font-size: 0.9rem;
+  padding: 0;
   margin-bottom: 2rem;
-  transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  transition: color 0.2s ease;
 }
 
 .back-btn:hover {
-  color: var(--jarvis-blue);
-  background: rgba(0, 240, 255, 0.1);
-  box-shadow: 0 0 15px var(--jarvis-blue-glow);
+  color: var(--brand-blue);
 }
 
-.detail-content {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+.detail-hero {
+  margin-bottom: 4rem;
 }
 
 .detail-header {
-  text-align: center;
-}
-
-.icon-wrapper {
-  margin-bottom: 1.5rem;
-  display: inline-block;
-  position: relative;
-}
-
-.icon-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, var(--jarvis-blue-glow) 0%, transparent 70%);
-  z-index: -1;
-  filter: blur(10px);
-}
-
-.detail-header h1 {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  margin-bottom: 1rem;
-}
-
-.lead-text {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
   max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
+}
+
+.detail-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  line-height: 1.1;
 }
 
 .detail-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  margin-bottom: 3rem;
 }
 
-.business-improvement, .core-features {
-  padding: 2.5rem;
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.impact-card, .capabilities-card {
   height: 100%;
 }
 
-.business-improvement h2, .core-features h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.business-improvement p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-primary);
-}
-
-.core-features ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.core-features li {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.core-features li span {
-  font-size: 1.1rem;
-  color: var(--text-primary);
-}
-
-.cta-section {
-  text-align: center;
-  margin-top: 4rem;
-  padding: 4rem 2rem;
-  border-top: 1px solid rgba(0, 240, 255, 0.1);
-}
-
-.cta-section h3 {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+.impact-text {
   color: var(--text-secondary);
+  line-height: 1.7;
 }
 
-.contact-trigger-btn {
-  background: transparent;
-  border: 1px solid var(--jarvis-blue);
-  color: var(--jarvis-blue);
-  padding: 1rem 2.5rem;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 0 20px var(--jarvis-blue-glow);
+.capabilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.contact-trigger-btn:hover {
-  background: var(--jarvis-blue);
-  color: var(--bg-dark);
-  box-shadow: 0 0 40px var(--jarvis-blue-glow);
-  transform: scale(1.05);
+.capabilities-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
-@media (max-width: 992px) {
+.check-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.detail-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.cta-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cta-content p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
   .detail-grid {
     grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 600px) {
-  .business-improvement, .core-features {
-    padding: 1.5rem;
-  }
   
-  .contact-trigger-btn {
-    width: 100%;
-    padding: 1rem;
+  .detail-cta {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
   }
 }

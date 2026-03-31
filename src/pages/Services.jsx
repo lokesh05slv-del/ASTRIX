@@ -1,46 +1,31 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { Code, GitMerge, Bot, ExternalLink } from 'lucide-react';
+import { Code, GitMerge, Bot, ExternalLink, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './Services.css';
 
-function HoverCard({ title, description, Icon, slug }) {
+function ServiceCard({ title, description, Icon, slug, index }) {
   const navigate = useNavigate();
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useTransform(y, [-100, 100], [15, -15]);
-  const rotateY = useTransform(x, [-100, 100], [-15, 15]);
-
-  function handleMouse(event) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    x.set(event.clientX - rect.left - rect.width / 2);
-    y.set(event.clientY - rect.top - rect.height / 2);
-  }
-
-  function resetMouse() {
-    x.set(0);
-    y.set(0);
-  }
 
   return (
     <motion.div
-      style={{ rotateX, rotateY, perspective: 1000 }}
-      onMouseMove={handleMouse}
-      onMouseLeave={resetMouse}
       onClick={() => navigate(`/services/${slug}`)}
-      className="glass-panel service-card"
+      className="card-clean service-card fade-in"
+      style={{ animationDelay: `${index * 0.15}s` }}
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
       <div className="card-top">
-        <Icon size={48} className="glow-icon" color="var(--jarvis-blue)" style={{ marginBottom: '1rem' }} />
-        <ExternalLink size={16} className="card-arrow" color="var(--jarvis-blue)" />
+        <div className="icon-wrapper" style={{ margin: 0, width: '56px', height: '56px' }}>
+          <Icon size={28} color="var(--brand-blue)" />
+        </div>
+        <ArrowRight size={20} className="card-arrow text-brand" />
       </div>
-      <h2 className="mono glow-text" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{title}</h2>
-      <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '1.5rem' }}>{description}</p>
-      <button className="explore-btn mono">
-        EXPLORE_DETAILS
+      <h2 style={{ fontSize: '1.4rem', margin: '1.5rem 0 1rem', color: 'var(--text-primary)' }}>{title}</h2>
+      <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '2rem' }}>{description}</p>
+      
+      <button className="btn-secondary service-explore-btn">
+        Explore Details
       </button>
     </motion.div>
   );
@@ -49,32 +34,42 @@ function HoverCard({ title, description, Icon, slug }) {
 export default function Services() {
   return (
     <div className="services-page page-container">
+      <div className="hero-background">
+        <div className="blob blob-1"></div>
+      </div>
+      
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="services-header"
+        className="services-header fade-in"
       >
-        <h1 className="mono glow-text" style={{ fontSize: '3rem' }}>Our Services</h1>
-        <p style={{ color: 'var(--text-secondary)' }}>High-performance web development and intelligent automation.</p>
+        <div className="badge">CAPABILITIES</div>
+        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '1rem' }}>Our <span className="text-brand">Services</span></h1>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
+          Strategic technology solutions designed to optimize workflows and scale your digital presence.
+        </p>
       </motion.div>
       
       <div className="services-grid">
-        <HoverCard 
-          title="Website Development" 
+        <ServiceCard 
+          index={1}
+          title="Digital Platforms" 
           slug="web-development"
-          description="High-performance, visually stunning architectures specifically built for conversion. React, Next.js, and immersive 3D web experiences."
+          description="High-performance, secure web applications built on Next.js and React. We deliver scalable architectures focused on user experience and conversion."
           Icon={Code}
         />
-        <HoverCard 
-          title="Automation Systems" 
+        <ServiceCard 
+          index={2}
+          title="Process Automation" 
           slug="automation-systems"
-          description="WhatsApp, Email, and internal CRM syncing. We build automated data pipelines that convert leads silently in the background."
+          description="Custom API integrations, CRM synchronization, and automated lead nurturing to reduce manual work and accelerate your operational velocity."
           Icon={GitMerge}
         />
-        <HoverCard 
-          title="AI Solutions" 
+        <ServiceCard 
+          index={3}
+          title="Applied AI Solutions" 
           slug="ai-solutions"
-          description="Integrating large language models directly into your business logic. AI-driven data extraction and workflow hooks."
+          description="Integrate large language models into your business logic. We build intelligent agents that analyze data and automate complex cognitive tasks."
           Icon={Bot}
         />
       </div>

@@ -1,46 +1,46 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Code, GitMerge, Bot, ArrowLeft, CheckCircle } from 'lucide-react';
+import { Code, GitMerge, Bot, ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
 import './ServiceDetail.css';
 
 const serviceData = {
   'web-development': {
-    title: 'Website Development',
+    title: 'Digital Platforms',
     icon: Code,
-    description: 'High-performance, visually stunning architectures specifically built for conversion.',
-    improvement: 'Our web solutions are engineered to load instantly and engage users immediately. By integrating immersive 3D elements and optimized React/Next.js architectures, we reduce bounce rates and increase customer trust, directly impacting your bottom line.',
+    description: 'High-performance, secure web applications built for conversion.',
+    improvement: 'Our digital platforms are engineered to load instantly and engage users immediately. By integrating optimized architectures, we reduce bounce rates and increase customer trust, directly impacting your bottom line.',
     features: [
       'Next.js & React High-Performance Apps',
-      'Three.js Immersive 3D Experiences',
-      'SEO Optimized Structure',
+      'Modern, professional UX/UI Design',
+      'Technical SEO Optimized Structure',
       'Conversion Rate Optimization (CRO)',
-      'Responsive & Mobile-First Design'
+      'Enterprise-grade Security & Scalability'
     ]
   },
   'automation-systems': {
-    title: 'Automation Systems',
+    title: 'Process Automation',
     icon: GitMerge,
-    description: 'WhatsApp, Email, and internal CRM syncing for seamless operations.',
+    description: 'Custom CRM syncing and data pipelines for seamless operations.',
     improvement: 'Stop wasting time on repetitive tasks. Our automation pipelines handle lead nurturing, data entry, and multi-channel communication silently in the background. This allows your team to focus on high-value strategy while the system scales your operations.',
     features: [
-      'WhatsApp API Integration',
-      'Automated Lead Nurturing',
+      'Enterprise API Integration',
+      'Automated Lead Nurturing Workflows',
       'CRM Data Synchronization',
-      'Custom Workflow Hooks',
+      'Custom Internal Tooling',
       'Error-Resilient Data Pipelines'
     ]
   },
   'ai-solutions': {
-    title: 'AI Solutions',
+    title: 'Applied AI Solutions',
     icon: Bot,
     description: 'Integrating large language models directly into your business logic.',
-    improvement: 'Leverage the power of AI to analyze data, automate customer support, and generate content. Our AI implementations go beyond simple chatbots; we build intelligent agents that understand your business logic and provide actionable insights.',
+    improvement: 'Leverage the power of AI to analyze data, automate customer support, and process large volumes of information. We build intelligent digital agents that understand your business logic and provide actionable insights.',
     features: [
-      'Custom LLM Integration (GPT-4, Gemini)',
+      'Custom LLM Integration (GPT-4, Claude)',
       'Intelligent Document Processing',
       'AI-Driven Predictive Analytics',
-      'Automated Support Agents',
+      'Automated Tier-1 Support Agents',
       'Semantic Search Implementation'
     ]
   }
@@ -53,9 +53,9 @@ export default function ServiceDetail() {
 
   if (!service) {
     return (
-      <div className="page-container" style={{ textAlign: 'center', paddingTop: '200px' }}>
-        <h1 className="glow-text">Service Not Found</h1>
-        <button className="back-btn" onClick={() => navigate('/services')}>Back to Services</button>
+      <div className="page-container" style={{ textAlign: 'center', paddingTop: '20vh' }}>
+        <h2>Service Not Found</h2>
+        <button className="btn-secondary" style={{ marginTop: '2rem' }} onClick={() => navigate('/services')}>Back to Capabilities</button>
       </div>
     );
   }
@@ -64,50 +64,54 @@ export default function ServiceDetail() {
 
   return (
     <div className="service-detail-page page-container">
-      <motion.button 
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="back-btn mono" 
-        onClick={() => navigate('/services')}
-      >
-        <ArrowLeft size={18} /> BACK_TO_SYSTEMS
-      </motion.button>
-
-      <div className="detail-content">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="detail-header"
+      <div className="detail-hero-background"></div>
+      
+      <div className="detail-container">
+        <motion.button 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="back-btn fade-in" 
+          onClick={() => navigate('/services')}
         >
-          <div className="icon-wrapper">
-            <Icon size={64} className="glow-icon" color="var(--jarvis-blue)" />
-          </div>
-          <h1 className="glow-text mono">{service.title}</h1>
-          <p className="lead-text">{service.description}</p>
-        </motion.div>
+          <ArrowLeft size={16} /> Back to Capabilities
+        </motion.button>
+
+        <div className="detail-hero">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="detail-header fade-in"
+          >
+            <div className="icon-wrapper detail-icon">
+              <Icon size={40} color="var(--brand-blue)" />
+            </div>
+            <h1 className="hero-title">{service.title}</h1>
+            <p className="hero-subtitle" style={{textAlign: 'left', margin: '0'}}>{service.description}</p>
+          </motion.div>
+        </div>
 
         <div className="detail-grid">
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="glass-panel business-improvement"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="card-clean impact-card fade-in"
           >
-            <h2 className="mono glow-text">Business Impact</h2>
-            <p>{service.improvement}</p>
+            <h2 className="section-title">Business Impact</h2>
+            <p className="impact-text">{service.improvement}</p>
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-            className="glass-panel core-features"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="card-clean capabilities-card fade-in"
           >
-            <h2 className="mono glow-text">Core Capabilities</h2>
-            <ul>
+            <h2 className="section-title">Core Capabilities</h2>
+            <ul className="capabilities-list">
               {service.features.map((feature, index) => (
                 <li key={index}>
-                  <CheckCircle size={16} color="var(--jarvis-blue)" />
+                  <CheckCircle size={20} color="var(--brand-blue)" className="check-icon" />
                   <span>{feature}</span>
                 </li>
               ))}
@@ -116,17 +120,20 @@ export default function ServiceDetail() {
         </div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="cta-section"
+          transition={{ delay: 0.3 }}
+          className="detail-cta card-clean fade-in"
         >
-          <h3 className="mono">Ready to optimize your business?</h3>
+          <div className="cta-content">
+            <h2>Ready to optimize your operations?</h2>
+            <p>Schedule a technical consultation to discuss implementation strategies for your enterprise.</p>
+          </div>
           <button 
-            className="contact-trigger-btn mono"
+            className="btn-primary"
             onClick={() => navigate('/contact')}
           >
-            INITIATE_CONTACT_SEQUENCE
+            Contact Sales <ArrowRight size={18} />
           </button>
         </motion.div>
       </div>

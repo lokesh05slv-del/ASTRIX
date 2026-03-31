@@ -1,15 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Marvel/Futuristic Theme Variables */
-  --jarvis-blue: #00f0ff;
-  --jarvis-blue-glow: rgba(0, 240, 255, 0.4);
-  --bg-dark: #0a0e17;
-  --bg-darker: #05070a;
-  --text-primary: #e0f2fe;
-  --text-secondary: #7dd3fc;
-  --grid-color: rgba(0, 240, 255, 0.05);
-  --iron-gold: #ffb703;
+  /* Professional Corporate Theme Variables */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --brand-blue: #2563eb;
+  --brand-blue-hover: #1d4ed8;
+  --brand-blue-light: #eff6ff;
+  --border-color: #e2e8f0;
+  
+  /* Soft Shadows for Depth */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 * {
@@ -19,133 +24,109 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-dark);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
   color: var(--text-primary);
   overflow-x: hidden;
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Universal Content Spacing (Proper Visibility Fix) */
+/* Universal Content Spacing */
 .page-container {
-  padding-top: 140px; /* Space for Desktop Nav */
+  padding-top: 100px; /* Space for Desktop Nav */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 768px) {
   .page-container {
-    padding-top: 100px; /* Space for Mobile Top Logo */
-    padding-bottom: 120px; /* Space for Mobile Bottom Nav */
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-top: 80px; /* Space for Mobile Top Logo */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
-/* Fluid Typography for Headers */
-h1.glow-text {
-  font-size: clamp(2.5rem, 8vw, 4rem);
+/* Typography Basics */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
 }
 
-/* Micro-Glitch CSS Effect */
-.glitch-text {
-  position: relative;
-  display: inline-block;
-}
-.glitch-text::before,
-.glitch-text::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.8;
-}
-.glitch-text::before {
-  left: 2px;
-  text-shadow: -2px 0 red;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim 5s infinite linear alternate-reverse;
-}
-.glitch-text::after {
-  left: -2px;
-  text-shadow: -2px 0 var(--jarvis-blue);
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim2 5s infinite linear alternate-reverse;
-}
-.glitch-text:hover::before, .glitch-text:hover::after {
-  animation-duration: 0.2s;
-}
-@keyframes glitch-anim {
-  0% { clip: rect(21px, 9999px, 86px, 0); }
-  20% { clip: rect(20px, 9999px, 15px, 0); }
-  40% { clip: rect(69px, 9999px, 73px, 0); }
-  60% { clip: rect(100px, 9999px, 34px, 0); }
-  80% { clip: rect(31px, 9999px, 35px, 0); }
-  100% { clip: rect(54px, 9999px, 31px, 0); }
-}
-@keyframes glitch-anim2 {
-  0% { clip: rect(16px, 9999px, 48px, 0); }
-  20% { clip: rect(98px, 9999px, 5px, 0); }
-  40% { clip: rect(78px, 9999px, 81px, 0); }
-  60% { clip: rect(74px, 9999px, 90px, 0); }
-  80% { clip: rect(48px, 9999px, 5px, 0); }
-  100% { clip: rect(42px, 9999px, 88px, 0); }
+p {
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
-/* Sci-fi Background Grid */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-image: 
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: 50px 50px;
-  background-position: center center;
-  opacity: 0.8;
-  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+/* Buttons */
+.btn-primary {
+  background-color: var(--brand-blue);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
 }
 
-h1, h2, h3, h4, .mono {
-  font-family: 'Share Tech Mono', monospace;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.btn-primary:hover {
+  background-color: var(--brand-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
-/* Custom Scrollbar */
+/* Soft Cards */
+.card-clean {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-clean:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Text Highlights */
+.text-brand {
+  color: var(--brand-blue);
+}
+
+/* Custom Scrollbar - Professional & Soft */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-darker);
+  background: var(--bg-secondary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--jarvis-blue);
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-primary);
+  background: #94a3b8;
 }
 
-.glow-text {
-  text-shadow: 0 0 10px var(--jarvis-blue-glow), 0 0 20px var(--jarvis-blue);
+/* Fade In Animation Utility */
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
-.glass-panel {
-  background: rgba(10, 14, 23, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
-  border-radius: 12px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-/* Animations */
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 var(--jarvis-blue-glow); }
-  70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
-}
-
-
