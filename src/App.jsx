@@ -6,6 +6,7 @@ import CustomCursor from './components/CustomCursor';
 import ParticleBackground from './components/ParticleBackground';
 import Home from './pages/Home';
 import Services from './pages/Services';
+import ServiceDetail from './pages/ServiceDetail';
 import Process from './pages/Process';
 import Contact from './pages/Contact';
 
@@ -17,6 +18,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/:serviceId" element={<ServiceDetail />} />
         <Route path="/process" element={<Process />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

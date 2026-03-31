@@ -31,3 +31,40 @@
 .glow-icon {
   filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.8));
 }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.card-arrow {
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .card-arrow {
+  opacity: 1;
+  transform: translate(5px, -5px);
+}
+
+.explore-btn {
+  margin-top: auto;
+  background: rgba(0, 240, 255, 0.05);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  color: var(--jarvis-blue);
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.service-card:hover .explore-btn {
+  background: var(--jarvis-blue);
+  color: var(--bg-dark);
+  box-shadow: 0 0 15px var(--jarvis-blue-glow);
+}
