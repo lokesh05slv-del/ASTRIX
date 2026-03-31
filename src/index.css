@@ -42,6 +42,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  html {
+    font-size: 13px; /* Demagnifies rem-based UI elements and text by approx 20% */
+  }
+
   .page-container {
     padding-top: 100px; /* Space for Mobile Top Logo */
     padding-bottom: 100px; /* Space for Mobile Bottom Nav */
