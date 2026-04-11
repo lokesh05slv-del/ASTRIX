@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Fingerprint, Lock, Mail, KeyRound, ShieldCheck } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Auth.css';
 
 export default function Auth() {
@@ -33,6 +34,12 @@ export default function Auth() {
 
   return (
     <div className="auth-page">
+      <SEO 
+        title="Security Access" 
+        description="Securely access the Astrix enterprise dashboard. Authorized personnel only."
+        canonical="/auth"
+        noindex={true}
+      />
       <div className="auth-container glass-panel">
         <div className="auth-header">
           <Lock className="glow-icon" color="var(--jarvis-blue)" size={40} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Home, Grid, Route, Mail } from 'lucide-react';
+import { Home, Grid, Route as RouteIcon, Mail, Star } from 'lucide-react';
 import './Navigation.css';
 
 export default function Navigation() {
@@ -28,6 +28,9 @@ export default function Navigation() {
             <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
               <span>CONTACT</span>
             </NavLink>
+            <NavLink to="/review" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+              <span>REVIEW</span>
+            </NavLink>
           </nav>
         </div>
       </header>
@@ -43,12 +46,16 @@ export default function Navigation() {
           <span>Services</span>
         </NavLink>
         <NavLink to="/process" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-          <Route className="nav-icon" size={20} />
+          <RouteIcon className="nav-icon" size={20} />
           <span>Process</span>
         </NavLink>
         <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
           <Mail className="nav-icon" size={20} />
           <span>Contact</span>
+        </NavLink>
+        <NavLink to="/review" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+          <Star className="nav-icon" size={20} />
+          <span>Review</span>
         </NavLink>
       </nav>
     </>

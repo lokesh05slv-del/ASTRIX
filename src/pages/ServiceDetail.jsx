@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Code, GitMerge, Bot, ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 import './ServiceDetail.css';
 
 const serviceData = {
@@ -62,8 +63,69 @@ export default function ServiceDetail() {
 
   const Icon = service.icon;
 
+  const siteUrl = 'https://astrix-webservices.netlify.app';
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": siteUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": `${siteUrl}/services`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": service.title,
+        "item": `${siteUrl}/services/${serviceId}`
+      }
+    ]
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": service.title,
+    "provider": {
+      "@type": "Organization",
+      "name": "Astrix",
+      "url": siteUrl
+    },
+    "description": service.description,
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "ASTRIX Solutions",
+      "itemListElement": service.features.map(feature => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": feature
+        }
+      }))
+    }
+  };
+
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [breadcrumbSchema, serviceSchema]
+  };
+
   return (
     <div className="service-detail-page page-container">
+      <SEO 
+        title={`${service.title} Solutions`}
+        description={`${service.title} services by Astrix. ${service.description}`}
+        canonical={`/services/${serviceId}`}
+        schemaData={combinedSchema}
+      />
       <div className="detail-hero-background"></div>
       
       <div className="detail-container">

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
 import { Mail, MessageSquare, Briefcase, ArrowRight, Phone, MessageCircle } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Contact.css';
 
 export default function Contact() {
@@ -9,6 +10,12 @@ export default function Contact() {
 
   return (
     <div className="contact-page page-container">
+      <SEO 
+        title="Contact Technical Sales & Consulting" 
+        description="Schedule a technical consultation with Astrix. Our expert engineers provide strategic advice on AI automation and digital architecture for your enterprise."
+        canonical="/contact"
+        keywords="technical consultation, business automation inquiry, AI agency contact, enterprise sales"
+      />
       <div className="hero-background">
         <div className="blob blob-1"></div>
       </div>

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Search, PenTool, Share2, Rocket, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './Process.css';
 
 const steps = [
@@ -62,8 +63,29 @@ export default function Process() {
     restDelta: 0.001
   });
 
+  const siteUrl = 'https://astrix-webservices.netlify.app';
+
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "ASTRIX Implementation Protocol",
+    "description": "Our structured engineering methodology for modernizing enterprise operations.",
+    "step": steps.map((step, index) => ({
+      "@type": "HowToStep",
+      "position": index + 1,
+      "name": step.title,
+      "text": step.desc
+    }))
+  };
+
   return (
     <div className="process-page page-container" ref={containerRef}>
+      <SEO 
+        title="Our Implementation Process" 
+        description="Learn about the ASTRIX engineering protocol: Systems Audit, Architecture Design, Systems Integration, and Scaled Deployment."
+        canonical="/process"
+        schemaData={howToSchema}
+      />
       <section className="process-hero fade-in">
         <div className="badge">METHODOLOGY</div>
         <h1 className="hero-title pt-4">Implementation <span className="text-brand">Process</span></h1>

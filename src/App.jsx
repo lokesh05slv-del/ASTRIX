@@ -8,6 +8,9 @@ import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Process from './pages/Process';
 import Contact from './pages/Contact';
+import Review from './pages/Review';
+import { TubeCursor } from './components/ui/tube-cursor';
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -20,6 +23,7 @@ function AnimatedRoutes() {
         <Route path="/services/:serviceId" element={<ServiceDetail />} />
         <Route path="/process" element={<Process />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/review" element={<Review />} />
       </Routes>
     </AnimatePresence>
   );
@@ -28,6 +32,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
+      <TubeCursor />
       <ScrollToTop />
       <Navigation />
       <AnimatedRoutes />

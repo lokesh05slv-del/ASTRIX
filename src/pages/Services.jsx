@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { Code, GitMerge, Bot, ExternalLink, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './Services.css';
 
 function ServiceCard({ title, description, Icon, slug, index }) {
@@ -34,6 +35,12 @@ function ServiceCard({ title, description, Icon, slug, index }) {
 export default function Services() {
   return (
     <div className="services-page page-container">
+      <SEO 
+        title="Solutions & Capabilities" 
+        description="Explore our specialized services: Digital Platform Engineering, Process Automation Pipelines, and Applied AI Integration for modern enterprise growth."
+        canonical="/services"
+        keywords="enterprise automation, AI integration agency, digital platform development, business process optimization"
+      />
       <div className="hero-background">
         <div className="blob blob-1"></div>
       </div>
@@ -44,9 +51,11 @@ export default function Services() {
         className="services-header fade-in"
       >
         <div className="badge">CAPABILITIES</div>
-        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '1rem' }}>Our <span className="text-brand">Services</span></h1>
+        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '1rem' }}>
+          Our <span className="text-brand">Specializations</span>
+        </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
-          Strategic technology solutions designed to optimize workflows and scale your digital presence.
+          Strategic technology solutions designed to optimize enterprise workflows and scale your digital presence globally.
         </p>
       </motion.div>
       

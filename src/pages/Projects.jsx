@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Zap } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Projects.css';
 
 export default function Projects() {
@@ -8,9 +9,16 @@ export default function Projects() {
 
   return (
     <div className="projects-page">
+      <SEO 
+        title="Enterprise Case Studies" 
+        description="Explore how Astrix automates operations for modern enterprises. See real-world results in lead response time, data accuracy, and operational throughput."
+        canonical="/projects"
+        keywords="case studies, automation results, enterprise transformation, ROI case studies"
+      />
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="projects-header">
-        <h1 className="mono glow-text">Past Projects</h1>
-        <p style={{ color: 'var(--text-secondary)' }}>See how we've helped businesses grow faster.</p>
+        <div className="badge">OUTCOMES</div>
+        <h1 className="hero-title" style={{ marginTop: '1rem' }}>Case <span className="text-brand">Studies</span></h1>
+        <p style={{ color: 'var(--text-secondary)' }}>Quantifiable results through intelligent engineering.</p>
       </motion.div>
 
       <div className="projects-content">
