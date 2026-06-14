@@ -6,7 +6,7 @@ export function SoftBubbles() {
 
   useEffect(() => {
     // Generate an array of bubble configurations
-    const newBubbles = Array.from({ length: 20 }).map((_, i) => ({
+    const newBubbles = Array.from({ length: 12 }).map((_, i) => ({
       id: i,
       size: Math.random() * 80 + 20, // Random sizes between 20px and 100px
       startX: Math.random() * 100, // Random start X position
@@ -51,8 +51,7 @@ export function SoftBubbles() {
             borderRadius: '50%',
             // Soft, cute, glassy orb effect
             background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(191,219,254,0.3) 40%, transparent 80%)',
-            boxShadow: '0 0 20px rgba(255,255,255,0.3)',
-            filter: 'blur(1px)',
+            willChange: 'transform, opacity',
           }}
         />
       ))}
