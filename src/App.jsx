@@ -9,9 +9,8 @@ import ServiceDetail from './pages/ServiceDetail';
 import Process from './pages/Process';
 import Contact from './pages/Contact';
 import Review from './pages/Review';
-import { TubeCursor } from './components/ui/tube-cursor';
-import ParticlesBackground from './components/ui/ParticlesBackground';
-
+import { AuroraBackground } from './components/ui/aurora-background';
+import { SoftBubbles } from './components/ui/SoftBubbles';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -33,8 +32,8 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
-      <ParticlesBackground />
-      <TubeCursor />
+      <AuroraBackground />
+      <SoftBubbles />
       <ScrollToTop />
       <Navigation />
       <AnimatedRoutes />

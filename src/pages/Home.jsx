@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart2, Shield, Zap } from 'lucide-react';
+import { ArrowRight, Brush, Sparkles, Layout } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import './Home.css';
@@ -13,7 +13,7 @@ const organizationSchema = {
   "name": "Astrix",
   "url": siteUrl,
   "logo": `${siteUrl}/logo.png`,
-  "description": "Leading AI and automation agency specializing in digital optimization and enterprise workflows.",
+  "description": "Premium design and web development agency specializing in elite branding, graphic design, and custom websites.",
   "sameAs": [
     "https://twitter.com/astrix",
     "https://linkedin.com/company/astrix"
@@ -42,9 +42,9 @@ export default function Home() {
   return (
     <div className="home-page page-container">
       <SEO 
-        title="AI & Automation Web Design Agency" 
-        description="Astrix is a premier AI and automation agency helping businesses scale with intelligent digital architecture and automated workflows."
-        keywords="astrix, ai agency, web design, automation agency, business automation, react web development, intelligent workflows, enterprise ai solutions, astrix web services"
+        title="Web Design & Elite Graphic Branding Agency" 
+        description="Astrix is a premium design and web development agency creating high-end digital platforms, brand identity, and graphic design built to capture leads."
+        keywords="astrix, web design, graphic design agency, brand identity, custom logo, illustration, corporate graphics, react web development, user interface design"
         canonical="/"
         schemaData={combinedSchema}
       />
@@ -61,13 +61,13 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="badge">ENTERPRISE SOLUTIONS</div>
+          <div className="badge">ELITE WEB & BRAND DESIGN</div>
           <h1 className="hero-title">
-            Transforming Business <br />
-            <span className="text-brand">Through Automation</span>
+            Crafting Visual Brands <br />
+            <span className="text-brand">That Demand Attention</span>
           </h1>
           <p className="hero-subtitle">
-            ASTRIX pioneers intelligent automation and digital architecture to streamline operations, enhance security, and drive measurable growth for modern enterprises.
+            ASTRIX designs high-end digital experiences, visual identities, and custom graphics that command authority, engage visitors, and convert active leads.
           </p>
         </motion.div>
           
@@ -79,26 +79,26 @@ export default function Home() {
         >
           <div className="feature-card card-clean fade-in" style={{ animationDelay: '0.4s' }}>
             <div className="icon-wrapper">
-              <BarChart2 size={24} color="var(--brand-blue)" />
+              <Sparkles size={24} color="var(--brand-blue)" />
             </div>
-            <h3>Data-Driven Growth</h3>
-            <p>Leverage analytics to scale your operations predictably.</p>
+            <h3>Strategic Brand Design</h3>
+            <p>Establish undeniable market authority with cohesive visual identity kits and logos.</p>
           </div>
           
           <div className="feature-card card-clean fade-in" style={{ animationDelay: '0.5s' }}>
             <div className="icon-wrapper">
-              <Zap size={24} color="var(--brand-blue)" />
+              <Brush size={24} color="var(--brand-blue)" />
             </div>
-            <h3>Rapid Automation</h3>
-            <p>Deploy AI-driven workflows that eliminate manual bottlenecks.</p>
+            <h3>Elite Graphic Design</h3>
+            <p>High-impact vectors, illustrations, and digital collateral handcrafted to captivate.</p>
           </div>
 
           <div className="feature-card card-clean fade-in" style={{ animationDelay: '0.6s' }}>
             <div className="icon-wrapper">
-              <Shield size={24} color="var(--brand-blue)" />
+              <Layout size={24} color="var(--brand-blue)" />
             </div>
-            <h3>Enterprise Security</h3>
-            <p>Robust architectures designed to protect your critical data.</p>
+            <h3>Premium Web Platforms</h3>
+            <p>SEO-optimized React applications built to rank, engage, and turn visitors into leads.</p>
           </div>
         </motion.div>
 
@@ -120,7 +120,7 @@ export default function Home() {
           className="btn-secondary"
           onClick={() => navigate('/contact')}
         >
-          Contact Sales
+          Schedule Consultation
         </button>
       </motion.div>
     </div>

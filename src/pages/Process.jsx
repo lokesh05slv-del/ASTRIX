@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Search, PenTool, Share2, Rocket, ArrowRight } from 'lucide-react';
+import { Search, PenTool, Layers, Rocket, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import './Process.css';
@@ -8,23 +8,23 @@ import './Process.css';
 const steps = [
   {
     icon: Search,
-    title: "1. Systems Audit",
-    desc: "We analyze your current lead generation pipelines and identify operational bottlenecks within your enterprise architecture."
+    title: "1. Brand Discovery",
+    desc: "We dive deep into your market position, target audience, and business goals to outline a strategic creative roadmap."
   },
   {
     icon: PenTool,
-    title: "2. Architecture Design",
-    desc: "Our engineers architect a scalable, high-conversion digital platform tailored to your specific business logic."
+    title: "2. Concept & Visual Design",
+    desc: "Our graphic designers and UI artists map wireframes, vector concepts, and premium visual interfaces for your review."
   },
   {
-    icon: Share2,
-    title: "3. Systems Integration",
-    desc: "We deploy secure API connections linking your CRM, communication channels, and internal tooling into a unified automation engine."
+    icon: Layers,
+    title: "3. Crafting & Code",
+    desc: "We bring designs to life with custom code, responsive CSS layout structures, and high-end animations."
   },
   {
     icon: Rocket,
-    title: "4. Deployment & Scaling",
-    desc: "Your optimized infrastructure goes live. Our ongoing SLA ensures 99.9% uptime and continuous performance tuning."
+    title: "4. Launch & Optimization",
+    desc: "Your premium digital platform goes live. We fine-tune technical details, optimize for SEO, and track lead conversion."
   }
 ];
 
@@ -68,8 +68,8 @@ export default function Process() {
   const howToSchema = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "ASTRIX Implementation Protocol",
-    "description": "Our structured engineering methodology for modernizing enterprise operations.",
+    "name": "ASTRIX Creative Design Protocol",
+    "description": "Our structured design and engineering methodology for launching modern digital platforms.",
     "step": steps.map((step, index) => ({
       "@type": "HowToStep",
       "position": index + 1,
@@ -81,16 +81,16 @@ export default function Process() {
   return (
     <div className="process-page page-container" ref={containerRef}>
       <SEO 
-        title="Our Implementation Process" 
-        description="Learn about the ASTRIX engineering protocol: Systems Audit, Architecture Design, Systems Integration, and Scaled Deployment."
+        title="Our Creative Process" 
+        description="Learn about the ASTRIX engineering protocol: Brand Discovery, Concept & Visual Design, Crafting & Code, and Launch Optimization."
         canonical="/process"
         schemaData={howToSchema}
       />
       <section className="process-hero fade-in">
-        <div className="badge">METHODOLOGY</div>
-        <h1 className="hero-title pt-4">Implementation <span className="text-brand">Process</span></h1>
+        <div className="badge">WORKFLOW</div>
+        <h1 className="hero-title pt-4">Creative <span className="text-brand">Process</span></h1>
         <p className="process-subtitle">
-          A structured engineering protocol designed to modernize your operations with zero downtime.
+          A structured design and development protocol engineered to launch premium brands and conversion-focused web layouts.
         </p>
       </section>
 
@@ -116,14 +116,14 @@ export default function Process() {
           viewport={{ once: true }}
           className="cta-card card-clean"
         >
-          <h2>Ready to initiate an enterprise audit?</h2>
-          <p>Schedule a technical discovery call to evaluate your infrastructure.</p>
+          <h2>Ready to launch your project?</h2>
+          <p>Schedule a discovery call to discuss your creative and web objectives.</p>
           <button 
             onClick={() => navigate('/contact')}
             className="btn-primary"
             style={{ marginTop: '1.5rem' }}
           >
-            Contact Technical Sales <ArrowRight size={18} />
+            Contact Creative Team <ArrowRight size={18} />
           </button>
         </motion.div>
       </section>

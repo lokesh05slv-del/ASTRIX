@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { Code, GitMerge, Bot, Palette, ExternalLink, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Code, Brush, Layout, Palette, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import './Services.css';
@@ -49,9 +49,9 @@ export default function Services() {
     <div className="services-page page-container">
       <SEO 
         title="Solutions & Capabilities" 
-        description="Explore our specialized services: Digital Platform Engineering, Process Automation Pipelines, Applied AI Integration, and Professional Design & Branding for modern enterprise growth."
+        description="Explore our specialized design services: Digital Platform Engineering, Creative Graphic Design, UI/UX & Interactive Design, and Strategic Brand Identity."
         canonical="/services"
-        keywords="enterprise automation, AI integration agency, digital platform development, business process optimization, brand identity kit, merchandise design, professional logo design"
+        keywords="web design, graphic design agency, digital platform development, UI/UX design, corporate branding, professional logo design, vector graphics, identity kits"
       />
       <div className="hero-background">
         <div className="blob blob-1"></div>
@@ -67,7 +67,7 @@ export default function Services() {
           Our <span className="text-brand">Specializations</span>
         </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
-          Strategic technology solutions designed to optimize enterprise workflows and scale your digital presence globally.
+          Strategic creative solutions designed to elevate your visual authority and scale your digital presence globally.
         </p>
       </motion.div>
       
@@ -76,28 +76,28 @@ export default function Services() {
           index={1}
           title="Digital Platforms" 
           slug="web-development"
-          description="High-performance, secure web applications built on Next.js and React. We deliver scalable architectures focused on user experience and conversion."
+          description="High-performance, secure web applications built with flawless React code. We deliver scalable architectures focused on design aesthetics and rapid load times."
           Icon={Code}
         />
         <ServiceCard 
           index={2}
-          title="Process Automation" 
-          slug="automation-systems"
-          description="Custom API integrations, CRM synchronization, and automated lead nurturing to reduce manual work and accelerate your operational velocity."
-          Icon={GitMerge}
+          title="Graphic Design" 
+          slug="graphic-design"
+          description="Custom illustrations, vector assets, marketing collateral, and high-impact visual design. Handcrafted by elite graphic designers to communicate your brand story."
+          Icon={Brush}
         />
         <ServiceCard 
           index={3}
-          title="Applied AI Solutions" 
-          slug="ai-solutions"
-          description="Integrate large language models into your business logic. We build intelligent agents that analyze data and automate complex cognitive tasks."
-          Icon={Bot}
+          title="UI/UX Design" 
+          slug="ui-ux-design"
+          description="Seamless user experiences and stunning interfaces. High-fidelity wireframes, interactive prototypes, and custom motion graphics tailored for maximum conversion."
+          Icon={Layout}
         />
         <ServiceCard 
           index={4}
           title="Design & Branding" 
           slug="design-branding"
-          description="Elevate your visual identity with professional, consistent branding across all digital platforms. From logos to 3D animations."
+          description="Elevate your visual identity with professional, consistent branding across all digital platforms. From custom logos to 3D brand assets."
           Icon={Palette}
         />
       </div>

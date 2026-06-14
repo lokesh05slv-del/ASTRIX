@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Code, GitMerge, Bot, Palette, ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
+import { Code, Brush, Layout, Palette, ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import Brand3D from '../components/ui/Brand3D';
 import './ServiceDetail.css';
@@ -11,7 +11,7 @@ const serviceData = {
     title: 'Digital Platforms',
     icon: Code,
     description: 'High-performance, secure web applications built for conversion.',
-    improvement: 'Our digital platforms are engineered to load instantly and engage users immediately. By integrating optimized architectures, we reduce bounce rates and increase customer trust, directly impacting your bottom line.',
+    improvement: 'Our digital platforms are engineered to load instantly and engage users immediately. By integrating optimized architectures and high-fidelity layouts, we reduce bounce rates and increase customer trust, directly impacting your bottom line.',
     features: [
       'Next.js & React High-Performance Apps',
       'Modern, professional UX/UI Design',
@@ -20,30 +20,30 @@ const serviceData = {
       'Enterprise-grade Security & Scalability'
     ]
   },
-  'automation-systems': {
-    title: 'Process Automation',
-    icon: GitMerge,
-    description: 'Custom CRM syncing and data pipelines for seamless operations.',
-    improvement: 'Stop wasting time on repetitive tasks. Our automation pipelines handle lead nurturing, data entry, and multi-channel communication silently in the background. This allows your team to focus on high-value strategy while the system scales your operations.',
+  'graphic-design': {
+    title: 'Graphic Design',
+    icon: Brush,
+    description: 'Bespoke marketing collaterals, digital illustrations, and vector design.',
+    improvement: 'Stand out from the noise with custom illustration and elite graphic assets. Our graphic design services focus on custom brand assets that tell your story instantly. High-end art directions ensure all visual touchpoints resonate with premium value.',
     features: [
-      'Enterprise API Integration',
-      'Automated Lead Nurturing Workflows',
-      'CRM Data Synchronization',
-      'Custom Internal Tooling',
-      'Error-Resilient Data Pipelines'
+      'Custom Vector Illustrations',
+      'High-Impact Pitch Decks & Sales Collateral',
+      'Ad Creatives & Marketing Graphics',
+      'Print & Digital Publishing Layouts',
+      'Art Direction & Custom Typography'
     ]
   },
-  'ai-solutions': {
-    title: 'Applied AI Solutions',
-    icon: Bot,
-    description: 'Integrating large language models directly into your business logic.',
-    improvement: 'Leverage the power of AI to analyze data, automate customer support, and process large volumes of information. We build intelligent digital agents that understand your business logic and provide actionable insights.',
+  'ui-ux-design': {
+    title: 'UI/UX Design',
+    icon: Layout,
+    description: 'Interactive layouts and user journeys engineered to convert visitors into leads.',
+    improvement: 'Intuitive structure meets ambitious visual style. We build interactive design systems, user flows, and wireframes that minimize friction and maximize engagement. Every pixel is planned to lead users directly to your core value propositions.',
     features: [
-      'Custom LLM Integration (GPT-4, Claude)',
-      'Intelligent Document Processing',
-      'AI-Driven Predictive Analytics',
-      'Automated Tier-1 Support Agents',
-      'Semantic Search Implementation'
+      'High-Fidelity Wireframing & Prototyping',
+      'Interactive Micro-Animations',
+      'User Journey Mapping & Audits',
+      'Design System Engineering',
+      'Mobile-First Responsive UI layouts'
     ]
   },
   'design-branding': {

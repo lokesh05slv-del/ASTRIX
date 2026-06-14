@@ -26,10 +26,10 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           className="contact-header fade-in"
         >
-          <div className="badge">PARTNERSHIP INQUIRY</div>
-          <h1 className="hero-title">Contact <span className="text-brand">Sales</span></h1>
+          <div className="badge">CREATIVE INQUIRY</div>
+          <h1 className="hero-title">Contact <span className="text-brand">Our Team</span></h1>
           <p className="hero-subtitle">
-            Provide the details of your enterprise requirements. Our technical sales team will review your inquiry and schedule a strategic consultation.
+            Let's discuss your project. Share your web design or branding goals and our creative team will schedule a custom consultation.
           </p>
         </motion.div>
 
@@ -109,24 +109,26 @@ export default function Contact() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="company">Company</label>
+                  <label htmlFor="phone">Phone Number</label>
                   <input
-                    id="company"
-                    type="text"
-                    name="company"
-                    placeholder="Company Name"
+                    id="phone"
+                    type="tel"
+                    name="phone"
+                    required
+                    placeholder="Enter your phone number"
                     className="form-control"
                   />
+                  <ValidationError prefix="Phone" field="phone" errors={state.errors} />
                 </div>
 
                 <div className="form-group full-width">
-                  <label htmlFor="message">Project Requirements</label>
+                  <label htmlFor="message">Requirements</label>
                   <textarea
                     id="message"
                     name="message"
                     required
                     rows={5}
-                    placeholder="Describe your operational bottlenecks or technical objectives..."
+                    placeholder="Describe your creative requirements, website goals, or design specifications..."
                     className="form-control textarea"
                   />
                   <ValidationError prefix="Message" field="message" errors={state.errors} />
@@ -137,7 +139,7 @@ export default function Contact() {
                   disabled={state.submitting}
                   className="btn-primary form-submit full-width"
                 >
-                  {state.submitting ? 'Authenticating...' : 'Submit Inquiry'} <ArrowRight size={18} />
+                  {state.submitting ? 'Sending...' : 'Submit Inquiry'} <ArrowRight size={18} />
                 </button>
               </form>
             )}
