@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { Code, GitMerge, Bot, ExternalLink, ArrowRight } from 'lucide-react';
+import { Code, GitMerge, Bot, Palette, ExternalLink, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import './Services.css';
@@ -13,21 +13,33 @@ function ServiceCard({ title, description, Icon, slug, index }) {
       onClick={() => navigate(`/services/${slug}`)}
       className="card-clean service-card fade-in"
       style={{ animationDelay: `${index * 0.15}s` }}
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: 'spring', stiffness: 300 }}
+      whileHover={{ 
+        scale: 1.02, 
+        translateY: -5,
+        transition: { duration: 0.2 } 
+      }}
+      whileTap={{ scale: 0.98 }}
     >
       <div className="card-top">
-        <div className="icon-wrapper" style={{ margin: 0, width: '56px', height: '56px' }}>
+        <motion.div 
+          className="icon-wrapper" 
+          style={{ margin: 0, width: '56px', height: '56px' }}
+          whileHover={{ rotate: 10, scale: 1.1 }}
+        >
           <Icon size={28} color="var(--brand-blue)" />
-        </div>
+        </motion.div>
         <ArrowRight size={20} className="card-arrow text-brand" />
       </div>
       <h2 style={{ fontSize: '1.4rem', margin: '1.5rem 0 1rem', color: 'var(--text-primary)' }}>{title}</h2>
       <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '2rem' }}>{description}</p>
       
-      <button className="btn-secondary service-explore-btn">
+      <motion.button 
+        className="btn-secondary service-explore-btn"
+        whileHover={{ x: 5 }}
+        transition={{ type: 'spring', stiffness: 400 }}
+      >
         Explore Details
-      </button>
+      </motion.button>
     </motion.div>
   );
 }
@@ -37,9 +49,9 @@ export default function Services() {
     <div className="services-page page-container">
       <SEO 
         title="Solutions & Capabilities" 
-        description="Explore our specialized services: Digital Platform Engineering, Process Automation Pipelines, and Applied AI Integration for modern enterprise growth."
+        description="Explore our specialized services: Digital Platform Engineering, Process Automation Pipelines, Applied AI Integration, and Professional Design & Branding for modern enterprise growth."
         canonical="/services"
-        keywords="enterprise automation, AI integration agency, digital platform development, business process optimization"
+        keywords="enterprise automation, AI integration agency, digital platform development, business process optimization, brand identity kit, merchandise design, professional logo design"
       />
       <div className="hero-background">
         <div className="blob blob-1"></div>
@@ -80,6 +92,13 @@ export default function Services() {
           slug="ai-solutions"
           description="Integrate large language models into your business logic. We build intelligent agents that analyze data and automate complex cognitive tasks."
           Icon={Bot}
+        />
+        <ServiceCard 
+          index={4}
+          title="Design & Branding" 
+          slug="design-branding"
+          description="Elevate your visual identity with professional, consistent branding across all digital platforms. From logos to 3D animations."
+          Icon={Palette}
         />
       </div>
     </div>

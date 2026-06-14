@@ -10,6 +10,7 @@ import Process from './pages/Process';
 import Contact from './pages/Contact';
 import Review from './pages/Review';
 import { TubeCursor } from './components/ui/tube-cursor';
+import ParticlesBackground from './components/ui/ParticlesBackground';
 
 
 function AnimatedRoutes() {
@@ -32,6 +33,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
+      <ParticlesBackground />
       <TubeCursor />
       <ScrollToTop />
       <Navigation />

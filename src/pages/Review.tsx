@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { EmojiRating } from '../components/ui/emoji-rating';
 import { Button } from '../components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
+import { db } from '../lib/firebase';
+import { collection, addDoc, getDocs, query, orderBy, serverTimestamp, Timestamp } from 'firebase/firestore';
 import '../pages/Home.css'; // Import global astrix styles
 
 interface ReviewItem {
   id: string;
   rating: number;
   feedback: string;
-  date: string;
+  created_at: Timestamp;
 }
 
 const EMOJIS = [
@@ -26,44 +28,50 @@ export default function Review() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [reviews, setReviews] = useState<ReviewItem[]>([]);
 
-  // Load reviews from local storage on mount
+  // Load reviews from Supabase on mount
   useEffect(() => {
-    const saved = localStorage.getItem('astrix_reviews');
-    if (saved) {
-      try {
-        setReviews(JSON.parse(saved));
-      } catch (e) {
-        console.error("Failed to parse reviews", e);
-      }
-    }
+    fetchReviews();
   }, []);
+
+  const fetchReviews = async () => {
+    try {
+      const q = query(collection(db, 'reviews'), orderBy('created_at', 'desc'));
+      const querySnapshot = await getDocs(q);
+      const docs = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as ReviewItem[];
+      setReviews(docs);
+    } catch (e) {
+      console.error("Failed to fetch reviews", e);
+    }
+  };
 
   const handleRatingChange = (value: number) => {
     setRating(value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!rating) return;
     
     setIsSubmitting(true);
     
-    // Simulate network request
-    setTimeout(() => {
-      const newReview: ReviewItem = {
-        id: Math.random().toString(36).substring(2, 9),
+    try {
+      await addDoc(collection(db, 'reviews'), {
         rating,
         feedback: feedback.trim() || 'No additional feedback provided.',
-        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-      };
+        created_at: serverTimestamp()
+      });
 
-      const updatedReviews = [newReview, ...reviews];
-      setReviews(updatedReviews);
-      localStorage.setItem('astrix_reviews', JSON.stringify(updatedReviews));
-
+      await fetchReviews(); // Refresh the list
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 800);
+    } catch (e) {
+      console.error("Error submitting review:", e);
+      setIsSubmitting(false);
+      alert("Failed to submit review. Make sure you configured Firebase Firestore!");
+    }
   };
 
   return (
@@ -187,7 +195,9 @@ export default function Review() {
                             ))}
                           </div>
                         </div>
-                        <span className="text-sm text-slate-400 font-medium">{review.date}</span>
+                        <span className="text-sm text-slate-400 font-medium">
+                          {review.created_at?.toDate().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) || 'Just now'}
+                        </span>
                       </div>
                       <p className="text-slate-600 text-base leading-relaxed whitespace-pre-wrap mt-2">
                         {review.feedback}

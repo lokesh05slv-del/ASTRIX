@@ -1,8 +1,9 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Code, GitMerge, Bot, ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
+import { Code, GitMerge, Bot, Palette, ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import Brand3D from '../components/ui/Brand3D';
 import './ServiceDetail.css';
 
 const serviceData = {
@@ -43,6 +44,20 @@ const serviceData = {
       'AI-Driven Predictive Analytics',
       'Automated Tier-1 Support Agents',
       'Semantic Search Implementation'
+    ]
+  },
+  'design-branding': {
+    title: 'Design & Branding',
+    icon: Palette,
+    description: 'Strategic visual identity systems designed to build authority and trust for modern brands.',
+    improvement: 'A strong brand identity is the foundation of digital trust. We create cohesive visual systems that ensure your business stands out on every platform, from social media to physical merchandise. Our 3D animated intros add a layer of professional polish that immediately elevates your brand\'s perceived value.',
+    features: [
+      'Brand Identity Kit (Logo, Colors, Fonts)',
+      'YouTube Channel Art (Banner, Thumbnails, End Screens)',
+      'Instagram Highlight & Story Branding',
+      'Podcast Cover Art for Spotify/Apple',
+      'Custom Merch & Apparel Design',
+      '3D Animated Logo & Intro Videos'
     ]
   }
 };
@@ -151,6 +166,18 @@ export default function ServiceDetail() {
             <p className="hero-subtitle" style={{textAlign: 'left', margin: '0'}}>{service.description}</p>
           </motion.div>
         </div>
+
+        {serviceId === 'design-branding' && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="brand-3d-wrapper"
+            style={{ marginBottom: '3rem' }}
+          >
+            <Brand3D />
+          </motion.div>
+        )}
 
         <div className="detail-grid">
           <motion.div 
