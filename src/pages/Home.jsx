@@ -67,7 +67,7 @@ export default function Home() {
             <span className="text-brand">That Demand Attention</span>
           </h1>
           <p className="hero-subtitle">
-            ASTRIX designs high-end digital experiences, visual identities, and custom graphics that command authority, engage visitors, and convert active leads.
+            ASTRIX Solutions designs high-end digital experiences, visual identities, and custom graphics that command authority, engage visitors, and convert active leads.
           </p>
         </motion.div>
           

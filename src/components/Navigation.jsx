@@ -9,8 +9,13 @@ export default function Navigation() {
       <header className="nav-header fade-in">
         <div className="nav-container">
           <Link to="/" className="nav-logo-link">
-            <div className="nav-logo text-brand">
-               ASTRIX
+            <div className="nav-logo" style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+              <span className="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 drop-shadow-sm">
+                ASTRIX
+              </span>
+              <span className="text-xs md:text-sm font-extrabold tracking-[0.2em] text-brand uppercase">
+                Solutions
+              </span>
             </div>
           </Link>
   
