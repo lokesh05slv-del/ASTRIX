@@ -47,7 +47,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3>Direct Email</h3>
-                  <p><a href="mailto:astrix.webandautomation@gmail.com" className="contact-link">astrix.webandautomation@gmail.com</a></p>
+                  <p><a href="mailto:astrix.solutions05slv@gmail.com" className="contact-link">astrix.solutions05slv@gmail.com</a></p>
                 </div>
               </div>
               <div className="info-item">
