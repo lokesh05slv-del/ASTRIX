@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASTRIX Solutions - Creative QR</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800;900&display=swap" rel="stylesheet">
+<style>
+  body {
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  /* Animated Aurora Background */
+  .aurora {
+    position: absolute;
+    width: 80vw;
+    height: 80vw;
+    background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.5), rgba(129, 140, 248, 0.2), transparent 50%);
+    filter: blur(60px);
+    animation: drift 10s infinite alternate ease-in-out;
+    z-index: 0;
+  }
+  
+  @keyframes drift {
+    0% { transform: translate(-10%, -5%) scale(1); }
+    100% { transform: translate(10%, 5%) scale(1.1); }
+  }
+
+  /* Glassmorphism Card */
+  .card {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 50px 40px;
+    border-radius: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-align: center;
+    color: white;
+    width: 320px;
+    overflow: hidden;
+  }
+
+  /* Shine effect sweeping across the card */
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    transform: skewX(-20deg);
+    animation: shine 7s infinite;
+  }
+
+  @keyframes shine {
+    0% { left: -150%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 40px;
+  }
+  .astrix {
+    font-size: 36px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1.5px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+  }
+  .solutions {
+    font-size: 13px;
+    font-weight: 800;
+    color: #60a5fa;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .qr-container {
+    background: white;
+    padding: 16px;
+    border-radius: 24px;
+    position: relative;
+    margin: 0 auto 36px;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.4), inset 0 0 0 4px rgba(37,99,235,0.1);
+  }
+  
+  .qr-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .cta {
+    font-size: 14px;
+    font-weight: 500;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+  }
+  .cta strong {
+    color: white;
+    font-weight: 800;
+    display: block;
+    margin-top: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+  }
+</style>
+</head>
+<body>
+
+  <div class="aurora"></div>
+  
+  <div class="card">
+    <div class="logo">
+      <span class="astrix">ASTRIX</span>
+      <span class="solutions">Solutions</span>
+    </div>
+    
+    <div class="qr-container">
+      <img src="qrcode.png" alt="ASTRIX Solutions QR Code">
+    </div>
+    
+    <div class="cta">
+      Enter the Future
+      <strong>Scan to Connect</strong>
+    </div>
+  </div>
+
+</body>
+</html>
