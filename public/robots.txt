@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /auth
 
-Sitemap: https://astrix-webservices.netlify.app/sitemap.xml
+Sitemap: https://astrix.solutions/sitemap.xml
