@@ -8,7 +8,8 @@ import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Process from './pages/Process';
 import Contact from './pages/Contact';
-import Review from './pages/Review';
+import Portfolio from './pages/Portfolio';
+import ProjectDetail from './pages/ProjectDetail';
 import { AuroraBackground } from './components/ui/aurora-background';
 import { SoftBubbles } from './components/ui/SoftBubbles';
 
@@ -23,7 +24,8 @@ function AnimatedRoutes() {
         <Route path="/services/:serviceId" element={<ServiceDetail />} />
         <Route path="/process" element={<Process />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/review" element={<Review />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
       </Routes>
     </AnimatePresence>
   );

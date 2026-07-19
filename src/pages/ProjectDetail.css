@@ -1,0 +1,142 @@
+.project-detail-page {
+  padding-bottom: 6rem;
+  background: var(--bg-tertiary);
+}
+
+.detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 3rem;
+  transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+  color: var(--brand-accent);
+}
+
+.detail-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.detail-category {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brand-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.detail-title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  color: var(--text-primary);
+}
+
+.detail-hero-image {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 4rem;
+}
+
+.detail-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.detail-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  background: var(--bg-primary);
+  padding: 4rem;
+  border-radius: 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.detail-description h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-description p {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.meta-box h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.meta-box p, .meta-box li {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.meta-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.meta-box li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.meta-box li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--brand-accent);
+}
+
+.launch-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+@media (max-width: 992px) {
+  .detail-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-title {
+    font-size: 2.5rem;
+  }
+  .detail-content {
+    padding: 2rem 1.5rem;
+  }
+}
